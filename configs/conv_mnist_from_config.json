@@ -8,7 +8,7 @@
   "model":{
     "name": "conv_mnist_model.ConvMnistModel",
     "learning_rate": 0.001,
-    "optimizer": "adadelta"
+    "optimizer": "adam"
   },
   "trainer":{
     "name": "simple_mnist_trainer.SimpleMnistModelTrainer",

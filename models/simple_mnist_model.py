@@ -1,6 +1,7 @@
 from base.base_model import BaseModel
-from keras.models import Sequential
-from keras.layers import Input, Dense
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Input, Dense
 
 
 class SimpleMnistModel(BaseModel):
