@@ -6,7 +6,6 @@ __pycache__/
 # C extensions
 *.so
 
-
 # Dataset
 data/
 
@@ -16,8 +15,6 @@ data/
 # Distribution / packaging
 .Python
 env/
-
-
 
 
 build/
@@ -35,10 +32,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
-
-
-
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -61,11 +54,6 @@ coverage.xml
 *.cover
 .hypothesis/
 
-
-
-
-
-# Translations
 *.mo
 *.pot
 
@@ -102,7 +90,6 @@ celerybeat-schedule
 # SageMath parsed files
 *.sage.py
 
-<<<<<<< HEAD
 # dotenv
 .env
 
@@ -110,7 +97,7 @@ celerybeat-schedule
 .venv
 venv/
 ENV/
-=======
+
 # Environments
 .env
 .venv
@@ -119,7 +106,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
->>>>>>> d49fcd243a2ad2485c3efb255ebadb5911c8f1c5
 
 # Spyder project settings
 .spyderproject
@@ -142,5 +128,6 @@ experiments/
 datasets/
 
 .idea/
+
 
 
