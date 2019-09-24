@@ -26,12 +26,12 @@ class SimpleMnistModelTrainer(BaseTrain):
             )
         )
 
-        self.callbacks.append(
-            TensorBoard(
-                log_dir=self.config.callbacks.tensorboard_log_dir,
-                write_graph=self.config.callbacks.tensorboard_write_graph,
-            )
-        )
+        # self.callbacks.append(
+        #     TensorBoard(
+        #         log_dir=self.config.callbacks.tensorboard_log_dir,
+        #         write_graph=self.config.callbacks.tensorboard_write_graph,
+        #     )
+        # )
 
         #later for comets
         # if hasattr(self.config,"comet_api_key"):
