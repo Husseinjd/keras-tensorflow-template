@@ -3,7 +3,14 @@ class BaseDataLoader:
         self.config = config
 
     def get_train_data(self):
-        raise NotImplementedError
+        pass
 
     def get_test_data(self):
-        raise NotImplementedError
+        pass
+
+    def preprocess(self):
+        pass
+    
+    #for future implementation
+    def data_generator(self):
+        pass

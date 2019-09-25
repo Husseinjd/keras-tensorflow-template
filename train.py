@@ -10,8 +10,14 @@ def main():
     try:
         args = get_args()
         #run a loop over all config file available or to set a folder for each type of configs - High mid low baseline etc..
-        #e.g. python main -t high 
         config = process_config(args.config)
+
+
+        #if args -high 
+        #loop over all config files
+        #
+
+        #-------------
         # create the experiments dirs
         create_dirs([config.callbacks.checkpoint_dir])
         print('Create the data generator.')
