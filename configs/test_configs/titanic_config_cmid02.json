@@ -9,9 +9,9 @@
   "model":{
     "name": "model_01.Model",
     "learning_rate": 0.001,
-    "optimizer": "adam",
-    "first_layers_dense": 512,
-    "midlayer_num":5,
+    "optimizer": "rmsprop",
+    "first_layers_dense": 64,
+    "midlayer_num":6,
     "middle_layers_dense": 128,
     "last_layer_dense": 1,
     "last_activation": "sigmoid",
@@ -19,8 +19,8 @@
   },
   "trainer":{
     "name": "trainer.ModelTrainer",
-    "num_epochs": 5,
-    "batch_size": 16,
+    "num_epochs": 80,
+    "batch_size": 32,
     "verbose_training": true,
     "save_pickle": true
   },

@@ -5,7 +5,7 @@ import os
 def get_args():
     argparser = argparse.ArgumentParser(description=__doc__)
     argparser.add_argument(
-        '-c', '--config',
+        '-cd', '--config-dir',
         dest='config',
         metavar='C',
         default='None',
@@ -20,7 +20,16 @@ def save_as_pickle(a, path, filename):
         :param path: The path where to save.
         :param filename: The filename
         """
-
         with open(os.path.join(path,filename), 'wb') as handle:
                 pickle.dump(a, handle)
         print("Save "+ filename +" successfully.")
+
+def load_pickle(path_to_obj):    
+    # open a file, where you stored the pickled data
+    file = open(path_to_obj, 'rb')
+    # dump information to that file
+    obj = pickle.load(file)
+    # close the file
+    file.close()
+    
+    return obj

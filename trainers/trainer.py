@@ -18,7 +18,7 @@ class ModelTrainer(BaseTrain):
     def init_callbacks(self):
         self.callbacks.append(
             ModelCheckpoint(
-                filepath=os.path.join(self.config.callbacks.checkpoint_dir, '%s-{epoch:02d}-{val_acc:.2f}.hdf5' % self.config.exp.name),
+                filepath=os.path.join(self.config.callbacks.checkpoint_dir, '%s-{epoch:02d}-{val_acc:.4f}.hdf5' % self.config.exp.name),
                 monitor=self.config.callbacks.checkpoint_monitor,
                 mode=self.config.callbacks.checkpoint_mode,
                 save_best_only=self.config.callbacks.checkpoint_save_best_only,
@@ -47,3 +47,7 @@ class ModelTrainer(BaseTrain):
             save_as_pickle(self.acc, self.config.callbacks.checkpoint_dir, 'train_acc.list')
             print('Saving validation..')
             save_as_pickle(self.val_acc, self.config.callbacks.checkpoint_dir,'val_acc.list')
+
+#TODO get test data
+#evaluate the models found on test data
+#check the best to predict the final submission data

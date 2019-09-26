@@ -1,0 +1,34 @@
+{
+  "exp": {
+    "name": "titanic",
+    "data_dir": "data"
+  },
+  "data_loader": {
+    "name": "data_loader_01.DataLoader"
+  },
+  "model":{
+    "name": "model_01.Model",
+    "learning_rate": 0.001,
+    "optimizer": "rmsprop",
+    "first_layers_dense": 16,
+    "midlayer_num":20,
+    "middle_layers_dense": 32,
+    "last_layer_dense": 1,
+    "last_activation": "sigmoid",
+    "loss":"binary_crossentropy"
+  },
+  "trainer":{
+    "name": "trainer.ModelTrainer",
+    "num_epochs": 80,
+    "batch_size": 32,
+    "verbose_training": true,
+    "save_pickle": true
+  },
+  "callbacks":{
+    "checkpoint_monitor": "val_acc",
+    "checkpoint_mode": "max",
+    "checkpoint_save_best_only": true,
+   "checkpoint_save_weights_only": false,
+    "checkpoint_verbose": true
+  }
+}

@@ -10,18 +10,19 @@
     "name": "model_01.Model",
     "learning_rate": 0.001,
     "optimizer": "adam",
-    "first_layers_dense": 1028,
-    "midlayer_num":3,
-    "middle_layers_dense": 512,
+    "first_layers_dense": 512,
+    "midlayer_num":5,
+    "middle_layers_dense": 128,
     "last_layer_dense": 1,
     "last_activation": "sigmoid",
     "loss":"binary_crossentropy"
   },
   "trainer":{
     "name": "trainer.ModelTrainer",
-    "num_epochs": 5,
-    "batch_size": 16,
-    "verbose_training": true
+    "num_epochs": 80,
+    "batch_size": 8,
+    "verbose_training": true,
+    "save_pickle": true
   },
   "callbacks":{
     "checkpoint_monitor": "val_acc",
