@@ -19,8 +19,8 @@
   },
   "trainer":{
     "name": "trainer.ModelTrainer",
-    "num_epochs": 80,
-    "batch_size": 8,
+    "num_epochs": 9,
+    "batch_size": 64,
     "verbose_training": true,
     "save_pickle": true
   },
@@ -29,6 +29,6 @@
     "checkpoint_mode": "max",
     "checkpoint_save_best_only": true,
    "checkpoint_save_weights_only": false,
-    "checkpoint_verbose": true
+    "checkpoint_verbose": 1
   }
 }

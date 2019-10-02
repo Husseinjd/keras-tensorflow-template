@@ -25,7 +25,7 @@ def process_config(json_file):
     json_string_name = json_file.rsplit('_',1)[1].rsplit('.',1)[0] #e.g. mid-01
     dataloader_string_name =  'dl' + config.data_loader.name.rsplit('_',1)[1].rsplit('.',1)[0] #e.g. dl01
     model_string_name = 'm' + config.model.name.rsplit('_',1)[1].rsplit('.',1)[0] #e.g. m01
-    
+    config.callbacks.exp_dir = os.path.join("experiments", time.strftime("%Y-%m-%d/",time.localtime()))
     config.callbacks.checkpoint_dir = os.path.join("experiments", time.strftime("%Y-%m-%d/",time.localtime()),"{}-{}-{}-checkpoints/".format(
           model_string_name,
           json_string_name,

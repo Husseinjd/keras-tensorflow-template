@@ -1,11 +1,15 @@
+from __future__ import absolute_import, division, print_function, unicode_literals
 from utils.config import process_config
 from utils.dirs import create_dirs
 from utils.utils import get_args
 from utils import factory
+from evaluate import *
 import sys
 import os
+import h5py
 
 def main():
+
     try:
         args = get_args()
         list_config_files = os.listdir(args.config)
@@ -28,6 +32,13 @@ def main():
             print('Start training the model.')
             trainer.train()
             print('Max val acc: ',max(trainer.val_acc))
+
+            if args.evaluate == 't':
+                print('Evaluating..')
+                path_to_models = config.callbacks.exp_dir
+                print(path_to_models)
+                test_ds = data_loader.get_testing_data()
+                evaluate_test(path_to_models,test_ds)
 
     except Exception as e:
         print(e)

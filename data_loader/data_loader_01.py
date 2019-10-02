@@ -15,7 +15,7 @@ class DataLoader(BaseDataLoader):
         self.data_dir = data_dir
         self.feature_columns = self.preprocess()
         
-    def preprocess(self,test_size=0.2):
+    def preprocess(self,val_size=0.4 ,test_size=0.2):
         """
             data preprocessing -- returning a list of tensorflow feature columns 
         """
@@ -30,16 +30,19 @@ class DataLoader(BaseDataLoader):
         
         #remove nans for now 
         df_train_clean = df_train_clean.dropna(axis=0)
-        train, val = train_test_split(df_train_clean,test_size=0.3)
-        
+        train, val_test = train_test_split(df_train_clean,test_size=val_size)
+        val,test = train_test_split(df_train_clean,test_size=val_size)
+
         #shape used for buffer size if shuffle is True
         self.train_shape  = train.shape
         self.val_shape  = val.shape
+        self.test_shape = test.shape
 
         label = 'Survived'
 
         self.train = self._df_to_dataset(train,label)
         self.val = self._df_to_dataset(val,label)
+        self.test = self._df_to_dataset(test,label)
         #---------------------------------------------------------------------
         
         #set up feature columns
@@ -68,14 +71,22 @@ class DataLoader(BaseDataLoader):
 
     def get_validation_data(self,shuffle=False):
         """
-        Returns a tf.Dataset training dataset
+        Returns a tf.Dataset validation dataset
         """
         if shuffle:
             self.val = self.val.shuffle(buffer_size=self.val_shape[0])
         if self.config.trainer.batch_size:
             self.val = self.val.batch(self.config.trainer.batch_size)
         return self.val
-        
+
+    
+    def get_testing_data(self):
+        """
+        Returns a tf.Dataset testing dataset
+        """
+        return self.test
+
+    
 
     def _df_to_dataset(self,dataframe,label_column):
         """

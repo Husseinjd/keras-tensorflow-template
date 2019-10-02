@@ -19,7 +19,7 @@
   },
   "trainer":{
     "name": "trainer.ModelTrainer",
-    "num_epochs": 80,
+    "num_epochs": 15,
     "batch_size": 32,
     "verbose_training": true,
     "save_pickle": true

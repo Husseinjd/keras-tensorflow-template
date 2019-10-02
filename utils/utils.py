@@ -10,6 +10,14 @@ def get_args():
         metavar='C',
         default='None',
         help='The Configuration file')
+
+    argparser.add_argument(
+        '-e', '--evaluate',
+        dest='evaluate',
+        metavar='C',
+        default='false',
+        help='Option to evaluate on test data')
+
     args = argparser.parse_args()
     return args
 
