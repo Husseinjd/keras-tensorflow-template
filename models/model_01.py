@@ -13,9 +13,10 @@ class Model(BaseModel):
     def build_model(self):
         self.model = Sequential()
         
-        #add the feature layer 
-        self.model.add(tf.keras.layers.DenseFeatures(self.feature_columns))
-
+        #add the feature layer
+        #self.features_layer = tf.keras.layers.DenseFeatures(self.feature_columns)  
+        
+        #self.model.add(self.features_layer)
         self.model.add(Dense(self.config.model.first_layers_dense, activation='relu'))
         
         #middle layers number

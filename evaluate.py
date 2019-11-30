@@ -44,7 +44,7 @@ def evaluate_test(checkpoint_dir,test_ds):
                         #evaluate model on test data  
                         model_path = os.path.join(path_checkpoint,f)
                         print('Loading model..',model_path)
-                        model =  tf.keras.models.load_model(model_path)
+                        model =  load_model(model_path)
                         print('evaluating model..')
                         loss, accuracy = model.evaluate(test_ds)
                         print('--Test: Acc {} Loss: {}'.format(loss,accuracy))

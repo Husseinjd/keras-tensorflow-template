@@ -6,8 +6,8 @@ from utils.utils import *
 
 
 class ModelTrainer(BaseTrain):
-    def __init__(self, model, train_dataset,val_dataset, config):
-        super(ModelTrainer, self).__init__(model, train_dataset,val_dataset,config)
+    def __init__(self, model, data_train,data_validate, config):
+        super(ModelTrainer, self).__init__(model, data_train,data_validate,config)
         self.callbacks = []
         self.loss = []
         self.acc = []
@@ -18,14 +18,12 @@ class ModelTrainer(BaseTrain):
     def init_callbacks(self):
         self.callbacks.append(
             ModelCheckpoint(
-                filepath=os.path.join(self.config.callbacks.checkpoint_dir, '%s-{epoch:02d}-{val_acc:.4f}' % self.config.exp.name),
+                filepath=os.path.join(self.config.callbacks.checkpoint_dir, '%s-{epoch:02d}-{val_acc:.4f}.model' % self.config.exp.name),
                 monitor=self.config.callbacks.checkpoint_monitor,
                 mode=self.config.callbacks.checkpoint_mode,
                 save_best_only=self.config.callbacks.checkpoint_save_best_only,
-                save_weights_only=False,#self.config.callbacks.checkpoint_save_weights_only,
                 verbose=self.config.callbacks.checkpoint_verbose,
-                 save_freq='epoch',
-                save_format='tf',
+                save_format="model",
             )
         )
     def train(self):

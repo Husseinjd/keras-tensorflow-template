@@ -45,6 +45,8 @@ class DataLoader(BaseDataLoader):
         self.test = self._df_to_dataset(test,label)
         #---------------------------------------------------------------------
         
+        #if need feature columns #for now there is a bug in loading the model using 
+        #feature columns 
         #set up feature columns
         feature_columns = []
 
@@ -95,5 +97,5 @@ class DataLoader(BaseDataLoader):
         """
         dataframe = dataframe.copy()
         labels = dataframe.pop(label_column)
-        ds = tf.data.Dataset.from_tensor_slices((dict(dataframe), labels))
+        ds = tf.data.Dataset.from_tensor_slices((dataframe.values, labels.values))
         return ds
