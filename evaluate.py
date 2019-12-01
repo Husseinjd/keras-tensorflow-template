@@ -25,6 +25,7 @@ def evaluate_test(checkpoint_dir,test_x, test_y):
     list_config_results  = os.listdir(checkpoints_directory) 
 
     for checkp in list_config_results:
+        max_eval_list = []    
         #check the results validation results of every config result
             #find the validation pickle list 
         path_checkpoint = os.path.join(checkpoints_directory,checkp)
@@ -48,8 +49,10 @@ def evaluate_test(checkpoint_dir,test_x, test_y):
                         #print('evaluating model..')
                         loss, accuracy = model.evaluate(test_x.values,test_y.values)
                         print('--Test: Acc {} Loss: {} -- Config Model: {}'.format(loss,accuracy,checkp))
-        else:
-            print('Missing validation list pickle file')
+                        max_eval_list.append(accuracy)
 
+        else:           
+            print('Missing validation list pickle file')
+    return os.path.join(checkpoints_directory,list_config_results[np.argmax(max_eval_list)]) #return full path to best model
 
 

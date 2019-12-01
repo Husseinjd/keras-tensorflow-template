@@ -10,7 +10,7 @@
     "name": "model_01.Model",
     "learning_rate": 0.001,
     "optimizer": "adam",
-    "first_layers_dense": 512,
+    "first_layers_dense": 32,
     "midlayer_num":5,
     "middle_layers_dense": 128,
     "last_layer_dense": 1,

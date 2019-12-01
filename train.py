@@ -38,7 +38,11 @@ def main():
                 path_to_models = config.callbacks.exp_dir
                 print(path_to_models)
                 test_x, test_y = data_loader.get_testing_data()
-                evaluate_test(path_to_models,test_x, test_y)
+                best_model_path = evaluate_test(path_to_models,test_x, test_y)
+        
+        #submit kaggle predictions
+        if args.submit == 't':
+                pass
 
     except Exception as e:
         print(e)

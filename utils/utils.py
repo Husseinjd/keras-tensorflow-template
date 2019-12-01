@@ -18,6 +18,14 @@ def get_args():
         default='false',
         help='Option to evaluate on test data')
 
+
+    argparser.add_argument(
+        '-s', '--submit',
+        dest='submit',
+        metavar='C',
+        default='false',
+        help='Option to submit the predictions to competition')
+
     args = argparser.parse_args()
     return args
 
