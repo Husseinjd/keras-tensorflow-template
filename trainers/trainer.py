@@ -3,7 +3,7 @@ import os
 import tensorflow as tf
 from tensorflow.keras.callbacks import ModelCheckpoint
 from utils.utils import *
-
+import numpy as np
 
 class ModelTrainer(BaseTrain):
     def __init__(self, model, data_train,data_validate, config):
@@ -18,20 +18,22 @@ class ModelTrainer(BaseTrain):
     def init_callbacks(self):
         self.callbacks.append(
             ModelCheckpoint(
-                filepath=os.path.join(self.config.callbacks.checkpoint_dir, '%s-{epoch:02d}-{val_acc:.4f}.model' % self.config.exp.name),
+                filepath=os.path.join(self.config.callbacks.checkpoint_dir, '%s-{epoch:02d}-{val_acc:.4f}.h5' % self.config.exp.name),
                 monitor=self.config.callbacks.checkpoint_monitor,
                 mode=self.config.callbacks.checkpoint_mode,
                 save_best_only=self.config.callbacks.checkpoint_save_best_only,
                 verbose=self.config.callbacks.checkpoint_verbose,
-                save_format="model",
+                save_format="h5",
             )
         )
     def train(self):
-        history = self.model.fit(
-            self.train_data,
+        self.train_x , self.train_y  = self.train_data
+        self.val_x , self.val_y  = self.val_data
+
+        history = self.model.fit(self.train_x.values , self.train_y.values,
             epochs=self.config.trainer.num_epochs,
             verbose=self.config.trainer.verbose_training,
-            validation_data=self.val_data,
+            validation_data=(self.val_x.values , self.val_y.values),
             callbacks=self.callbacks,
         )
         self.loss.extend(history.history['loss'])

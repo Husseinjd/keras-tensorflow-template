@@ -16,7 +16,7 @@ from tensorflow.keras.models import load_model
 
 
 
-def evaluate_test(checkpoint_dir,test_ds):
+def evaluate_test(checkpoint_dir,test_x, test_y):
     MODEL_EVALUATE_LIST_NAME = 'val_acc.list'
 
     checkpoints_directory = checkpoint_dir #e.g. date of the experiment 
@@ -43,11 +43,11 @@ def evaluate_test(checkpoint_dir,test_ds):
                         print('--Validation: Model:{} -  Best Epoch --> {}'.format(checkp,f))
                         #evaluate model on test data  
                         model_path = os.path.join(path_checkpoint,f)
-                        print('Loading model..',model_path)
+                        #print('Loading model..',model_path)
                         model =  load_model(model_path)
-                        print('evaluating model..')
-                        loss, accuracy = model.evaluate(test_ds)
-                        print('--Test: Acc {} Loss: {}'.format(loss,accuracy))
+                        #print('evaluating model..')
+                        loss, accuracy = model.evaluate(test_x.values,test_y.values)
+                        print('--Test: Acc {} Loss: {} -- Config Model: {}'.format(loss,accuracy,checkp))
         else:
             print('Missing validation list pickle file')
 

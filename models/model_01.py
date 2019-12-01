@@ -7,7 +7,7 @@ from tensorflow.keras.layers import Input, Dense
 class Model(BaseModel):
     def __init__(self, config,feature_columns):
         super(Model, self).__init__(config)
-        self.feature_columns = feature_columns
+        #self.feature_columns = feature_columns disabled until bugs fixed in tensorflow
         self.build_model()
 
     def build_model(self):
@@ -15,8 +15,9 @@ class Model(BaseModel):
         
         #add the feature layer
         #self.features_layer = tf.keras.layers.DenseFeatures(self.feature_columns)  
-        
         #self.model.add(self.features_layer)
+        #--------------------------------------------
+        
         self.model.add(Dense(self.config.model.first_layers_dense, activation='relu'))
         
         #middle layers number

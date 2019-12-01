@@ -8,8 +8,10 @@ __pycache__/
 *.so
 
 # Dataset
-#data/
+data/
 
+#logs 
+log.txt
 # VSCode
 .vscode/
 

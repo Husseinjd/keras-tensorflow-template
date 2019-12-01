@@ -21,7 +21,7 @@
     "name": "trainer.ModelTrainer",
     "num_epochs": 15,
     "batch_size": 32,
-    "verbose_training": true,
+    "verbose_training": false,
     "save_pickle": true
   },
   "callbacks":{
