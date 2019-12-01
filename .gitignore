@@ -8,7 +8,7 @@ __pycache__/
 *.so
 
 # Dataset
-data/
+#data/
 
 # VSCode
 .vscode/
