@@ -4,13 +4,15 @@ A tensorflow 2.0 project template that is redesigned to automate model creation 
 creation, training and evaluation of models. 
 
 
+**template files are provided with an example and sample configs, data files from the titanic kaggle competitions were used**
+
+
 # Acknowledgments
 Thanks to Mahmoud Gemy for developing the template. The template is a combination of the templates provided here:
 https://github.com/MrGemy95/Tensorflow-Project-Template, Mahmoud Gemy
 https://github.com/Ahmkel/Keras-Project-Template , Ahmed Hamada Mohamed Kamel El-Hinidy
 with added improvements and automation for faster training and evaluating models based on configs provided.
 
-**template files are provided with an example and sample configs, data files from the titanic kaggle competitions were used**
 
 Folder structure
 --------------
@@ -55,7 +57,7 @@ Check the config file contents for more info.
 
 
 # Future Work
-- Add tensorflow dataset API and feature columns 
+- Add tensorflow dataset API and feature columns [ some lines added, not complete due to tensorflow bug]
 - randomized config file generator 
 - Kaggle submission availability
 - More examples on image and text data
